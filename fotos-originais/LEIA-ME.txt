@@ -1,0 +1,11 @@
+Coloque aqui as fotos geradas por IA (png, jpg ou webp).
+
+  fotos-originais/<id-do-item>.png        foto do prato ou bebida
+  fotos-originais/categorias/<id>.png     foto redonda da categoria
+  fotos-originais/capa.jpg                capa do topo (opcional)
+  fotos-originais/logo.png                logo (opcional)
+
+O nome do arquivo precisa ser igual ao "id" do item em dados/cardapio.js.
+Os nomes certos e os prompts estão em LISTA-DE-FOTOS.md.
+
+Depois rode no terminal, na pasta do projeto:  npm run fotos

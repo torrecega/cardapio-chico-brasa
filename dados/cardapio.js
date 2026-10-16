@@ -1,0 +1,2342 @@
+/*
+ * CARDÁPIO — CHICO BRASA & GRILL
+ * --------------------------------------------------------------------------
+ * Este é o ÚNICO arquivo de dados do site. Tudo o que aparece no cardápio
+ * (nomes, descrições, preços, links) vem daqui. Veja o README.md para exemplos.
+ *
+ * Dicas rápidas:
+ *  - Preço usa PONTO como separador decimal: 49.9 = R$ 49,90.
+ *  - Para esconder um item, acrescente  "oculto": true
+ *  - Para marcar como esgotado hoje, acrescente  "esgotado": true
+ *  - Cuidado com as vírgulas entre os campos e entre os itens.
+ *  - Depois de salvar, recarregue a página no navegador.
+ */
+
+// Configurações gerais do site
+window.CONFIG = {
+  // true = mostra "Imagens meramente ilustrativas." no rodapé
+  fotosIlustrativas: true,
+  // Crédito opcional no rodapé. Fica oculto enquanto "texto" estiver vazio.
+  // Exemplo: { texto: 'Cardápio digital por Fulano', link: 'https://instagram.com/fulano' }
+  credito: { texto: '', link: '' }
+};
+
+// Dados do cardápio
+window.CARDAPIO = {
+  "restaurante": {
+    "nome": "Chico Brasa & Grill",
+    "slogan": "Sabor de verdade, no fogo certo. Pratos grelhados na parrilla, feitos com capricho para você.",
+    "assinatura": "Brasa de verdade",
+    "endereco": "Av. San Diêgo, Loja 17, Polo de Artesanato, Jardim Botânico — Brasília/DF",
+    "reservas_whatsapp": "+55 61 98120-8224",
+    "site_atual": "https://chicobrasaegrill.com.br/cardapio/",
+    "links": {
+      "whatsapp_reservas": "https://wa.me/5561981208224?text=Ol%C3%A1!%20Vim%20pelo%20card%C3%A1pio%20digital%20e%20gostaria%20de%20fazer%20uma%20reserva.",
+      "como_chegar": "https://www.google.com/maps/dir/?api=1&destination=Chico%20Brasa%20%26%20Grill&destination_place_id=ChIJK5YRGgAjWpMR01KggmyZo_Q",
+      "avaliar_google": "https://search.google.com/local/writereview?placeid=ChIJK5YRGgAjWpMR01KggmyZo_Q",
+      "instagram": "https://www.instagram.com/chicobrasagrill/"
+    },
+    "google_place_id": "ChIJK5YRGgAjWpMR01KggmyZo_Q",
+    "slogan_curto": "Sabor de verdade, no fogo certo."
+  },
+  "identidade_visual_atual": {
+    "fundo": "#0B0A09",
+    "laranja_brasa": "#E4551F",
+    "dourado": "#E8B33C",
+    "creme_texto": "#F6F1E7",
+    "texto_secundario": "#9C8F7C",
+    "fontes": {
+      "titulos": "Anton",
+      "texto": "Barlow Condensed",
+      "destaques": "Alfa Slab One"
+    }
+  },
+  "grupos": [
+    {
+      "id": "comidas",
+      "nome": "Comidas"
+    },
+    {
+      "id": "bebidas",
+      "nome": "Bebidas"
+    },
+    {
+      "id": "vinhos",
+      "nome": "Carta de Vinhos"
+    }
+  ],
+  "categorias": [
+    {
+      "id": "entradas",
+      "grupo": "comidas",
+      "nome": "Entradas e Petiscos",
+      "chamada": "Para começar bem ou dividir com a galera",
+      "descricao": null,
+      "disponibilidade": null,
+      "itens": [
+        {
+          "id": "calabresa-acebolada-com-batata-frita",
+          "nome": "Calabresa Acebolada com Batata Frita",
+          "descricao": "Acompanha 250g de calabresa acebolada e 300g de batata frita macia e crocante.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 49.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/calabresa-acebolada-com-batata-frita.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "batata-tradicional",
+          "nome": "Batata Tradicional",
+          "descricao": "Porção de Batata Tradicional macia e crocante!",
+          "precos": [
+            {
+              "rotulo": "Pequena",
+              "valor": 18.9
+            },
+            {
+              "rotulo": "Grande",
+              "valor": 29.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/batata-tradicional.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "batata-rustica",
+          "nome": "Batata Rústica",
+          "descricao": "Porção de Batata Rústica com páprica doce.",
+          "precos": [
+            {
+              "rotulo": "Pequena",
+              "valor": 23.9
+            },
+            {
+              "rotulo": "Grande",
+              "valor": 34.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/batata-rustica.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "batata-com-cheddar-e-bacon",
+          "nome": "Batata com Cheddar e Bacon",
+          "descricao": "Porção de Batata Tradicional cobertas com cheddar cremoso e finalizadas com bacon crispy.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 49.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/batata-com-cheddar-e-bacon.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "batata-com-parmesao-e-ervas",
+          "nome": "Batata com Parmesão e Ervas",
+          "descricao": "Porção de Batata Tradicional finalizada com ervas picadinhas (manjericão, salsa e alecrim) e parmesão.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 39.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/batata-com-parmesao-e-ervas.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "frango-a-passarinho",
+          "nome": "Frango a Passarinho",
+          "descricao": "Frango a passarinho bem dourado, com textura crocante e sabor marcante.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 54.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/frango-a-passarinho.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "bolinho-de-bacalhau",
+          "nome": "Bolinho de Bacalhau",
+          "descricao": "Deliciosos bolinhos, crocantes por fora e suculentos por dentro. Contém 07 un.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 49.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/bolinho-de-bacalhau.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "porcao-de-pasteis",
+          "nome": "Porção de Pastéis",
+          "descricao": "Deliciosos pastéis da casa. Sabores: três queijos, carne ou misto. Contém 06 unidades.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 39.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/porcao-de-pasteis.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "panceta-suina",
+          "nome": "Panceta Suína",
+          "descricao": "Panceta suína de cocção lenta, com carne macia e pururuca crocante, servida com mandioca cozida ou frita.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 39.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/panceta-suina.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "ceviche-classico",
+          "nome": "Ceviche Clássico",
+          "descricao": "Cubos de peixe fresco, marinado em suco de limão, cebola roxa, coentro e pimenta. Acompanhado de milho crocante e batata doce.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 54.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/ceviche-classico.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": true
+        },
+        {
+          "id": "mandioca-frita",
+          "nome": "Mandioca Frita",
+          "descricao": "Mandioca frita, crocante por fora e macia por dentro, acompanhada de maionese da casa.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 34.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/mandioca-frita.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "iscas-de-tilapia-a-milanesa",
+          "nome": "Iscas de Tilápia à Milanesa",
+          "descricao": "Iscas de tilápia selecionadas, empanadas à milanesa e fritas no ponto ideal. Acompanha molho tártaro.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 74.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/iscas-de-tilapia-a-milanesa.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "caldo-verde",
+          "nome": "Caldo Verde",
+          "descricao": "Deliciosa combinação de batata inglesa, couve manteiga, caldo de legumes, cheiro verde e cebola. Acompanha 06 un. de torradas.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 29.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/caldo-verde.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "caldo-de-feijao",
+          "nome": "Caldo de Feijão",
+          "descricao": "A combinação perfeita é composta por feijão, bacon e cheiro verde. Acompanha 06 un. de torradas.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 19.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/caldo-de-feijao.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "isca-de-file-ao-molho-gorgonzola",
+          "nome": "Isca de Filé ao Molho Gorgonzola",
+          "descricao": "Saborosa isca de filé Mignon ao molho gorgonzola. Acompanha 06 un. de torradas.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 79.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/isca-de-file-ao-molho-gorgonzola.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "pipoquinha-de-queijo-coalho",
+          "nome": "Pipoquinha de Queijo Coalho",
+          "descricao": "Queijo Coalho empanado na farinha panko. Acompanha melaço de cana.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 39.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/pipoquinha-de-queijo-coalho.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": true
+        },
+        {
+          "id": "salada-verde-da-casa",
+          "nome": "Salada Verde da Casa",
+          "descricao": "Salada preparada com alface crespa e roxa, cebola roxa, tomate cereja e parmesão ralado.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 39.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/salada-verde-da-casa.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "salada-caesar",
+          "nome": "Salada Caesar",
+          "descricao": "Salada preparada com alface americana, lascas de filé de frango grelhado, parmesão e molho Caesar.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 49.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/salada-caesar.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        }
+      ]
+    },
+    {
+      "id": "executivos",
+      "grupo": "comidas",
+      "nome": "Pratos Executivos 300g",
+      "chamada": "De segunda a sexta no almoço, exceto feriados",
+      "descricao": "Grelhado na parrilla, com 2 acompanhamentos e molho. Acompanhamentos: arroz biro-biro, arroz com brócolis, arroz branco, purê de batata, batata frita, batata rústica, mandioca frita, legumes salteados, farofa de ovos, farofa de banana, farofa de alho crocante, saladas. Molhos: chimichurri, vinagrete, molho madeira.",
+      "disponibilidade": "Segunda a sexta, no almoço (exceto feriados)",
+      "itens": [
+        {
+          "id": "executivo-de-carne",
+          "nome": "Executivo de Carne",
+          "descricao": null,
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 49.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/executivo-de-carne.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "executivo-de-frango",
+          "nome": "Executivo de Frango",
+          "descricao": null,
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 39.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/executivo-de-frango.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "executivo-de-tilapia",
+          "nome": "Executivo de Tilápia",
+          "descricao": null,
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 44.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/executivo-de-tilapia.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        }
+      ]
+    },
+    {
+      "id": "file-mignon",
+      "grupo": "comidas",
+      "nome": "Pratos com Filé Mignon",
+      "chamada": "Menu dom chico",
+      "descricao": "Um menu que abraça todos os sabores. Seja a riqueza do Filé Mignon, o frescor da Tilápia ou as nossas deliciosas criações vegetarianas, a sua próxima refeição inesquecível espera por você.",
+      "disponibilidade": null,
+      "itens": [
+        {
+          "id": "medalhao-de-file-mignon-ao-molho-madeira",
+          "nome": "Medalhão de Filé Mignon ao Molho Madeira",
+          "descricao": "Medalhão de filé mignon ao molho madeira, cogumelos e arroz a piamontese.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 89.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/medalhao-de-file-mignon-ao-molho-madeira.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "medalhao-de-file-mignon-ao-molho-gorgonzola",
+          "nome": "Medalhão de Filé Mignon ao Molho Gorgonzola",
+          "descricao": "Medalhão de filé mignon ao molho gorgonzola, arroz biro-biro e legumes salteados.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 89.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/medalhao-de-file-mignon-ao-molho-gorgonzola.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": true
+        },
+        {
+          "id": "picadinho-dom-chico",
+          "nome": "Picadinho Dom Chico",
+          "descricao": "Picadinho de filé mignon ao molho madeira, arroz branco, banana frita e farofa de ovo.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 79.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/picadinho-dom-chico.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "strogonoff-de-carne",
+          "nome": "Strogonoff de Carne",
+          "descricao": "Strogonoff de carne, com arroz branco e batata palha.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 79.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/strogonoff-de-carne.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "parmegiana-de-carne-classica",
+          "nome": "Parmegiana de Carne Clássica",
+          "descricao": "Parmegiana de filé mignon, arroz branco e batata frita.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 71.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/parmegiana-de-carne-classica.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "parmegiana-de-carne-com-talharim",
+          "nome": "Parmegiana de Carne com Talharim",
+          "descricao": "Parmegiana de filé mignon, com penne ao molho branco ou sugo.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 79.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/parmegiana-de-carne-com-talharim.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        }
+      ]
+    },
+    {
+      "id": "pescados",
+      "grupo": "comidas",
+      "nome": "Pescados",
+      "chamada": "Do mar",
+      "descricao": null,
+      "disponibilidade": null,
+      "itens": [
+        {
+          "id": "tilapia-com-molho-de-alcaparras",
+          "nome": "Tilápia com Molho de Alcaparras",
+          "descricao": "Tilápia grelhada com molho de alcaparras, arroz branco e legumes.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 74.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/tilapia-com-molho-de-alcaparras.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "salmao-ao-molho-de-maracuja",
+          "nome": "Salmão ao Molho de Maracujá",
+          "descricao": "Acompanhamentos: arroz branco e purê de mandioquinha.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 89.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/salmao-ao-molho-de-maracuja.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        }
+      ]
+    },
+    {
+      "id": "frango",
+      "grupo": "comidas",
+      "nome": "Pratos com Frango",
+      "chamada": "Aves",
+      "descricao": null,
+      "disponibilidade": null,
+      "itens": [
+        {
+          "id": "file-de-frango-ao-molho-de-mostarda",
+          "nome": "Filé de Frango ao Molho de Mostarda",
+          "descricao": "Filé de frango ao molho de mostarda, arroz branco e legumes salteados.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 54.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/file-de-frango-ao-molho-de-mostarda.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "strogonoff-de-frango",
+          "nome": "Strogonoff de Frango",
+          "descricao": "Strogonoff de frango, arroz branco e batata palha.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 54.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/strogonoff-de-frango.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "parmegiana-de-frango-classica",
+          "nome": "Parmegiana de Frango Clássica",
+          "descricao": "Parmegiana de frango, arroz branco e batata frita.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 61.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/parmegiana-de-frango-classica.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "parmegiana-de-frango-com-talharim",
+          "nome": "Parmegiana de Frango com Talharim",
+          "descricao": "Parmegiana de frango com talharim ao molho branco ou sugo.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 61.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/parmegiana-de-frango-com-talharim.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        }
+      ]
+    },
+    {
+      "id": "suinos",
+      "grupo": "comidas",
+      "nome": "Costelinha e Feijoada",
+      "chamada": "Suínos",
+      "descricao": null,
+      "disponibilidade": null,
+      "itens": [
+        {
+          "id": "costelinha-suina-ao-barbecue",
+          "nome": "Costelinha Suína ao Barbecue",
+          "descricao": "Costelinha suína defumada, finalizada com molho barbecue acompanhada de farofa crocante.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 59.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/costelinha-suina-ao-barbecue.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": true
+        },
+        {
+          "id": "feijoada-para-dois",
+          "nome": "Feijoada para dois",
+          "descricao": "Combinação perfeita de feijão preto, costelinha, carne de sol e calabresa. Servida com arroz, couve-flor, laranja e farofa da casa.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 99.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/feijoada-para-dois.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "feijoada-individual",
+          "nome": "Feijoada Individual",
+          "descricao": "Combinação perfeita de feijão preto, costelinha, carne de sol e calabresa. Servida com arroz, couve-flor, laranja e farofa da casa. Servido apenas de Sexta a Domingo!",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 54.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/feijoada-individual.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false,
+          "disponibilidade": "Sexta a domingo"
+        }
+      ]
+    },
+    {
+      "id": "combos",
+      "grupo": "comidas",
+      "nome": "Combos Parrilla",
+      "chamada": "Para compartilhar",
+      "descricao": null,
+      "disponibilidade": null,
+      "itens": [
+        {
+          "id": "combo-costelinha-ao-molho-barbecue-e-linguica-de-frango",
+          "nome": "Combo Costelinha ao Molho Barbecue e Linguiça de Frango",
+          "descricao": "400g de costelinha suína ao molho barbecue, 400g de linguiça de frango. Acompanhamentos: arroz branco, farofa de ovos, purê de batata.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 199.9
+            }
+          ],
+          "serve_pessoas": 4,
+          "origem": null,
+          "foto": "img/combo-costelinha-ao-molho-barbecue-e-linguica-de-frango.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "combo-chorizo",
+          "nome": "Combo Chorizo",
+          "descricao": "Combo de 500g de chorizo, farofa, vinagrete, arroz biro-biro e batata frita.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 179.9
+            }
+          ],
+          "serve_pessoas": 4,
+          "origem": null,
+          "foto": "img/combo-chorizo.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "combo-bombom-da-alcatra",
+          "nome": "Combo Bombom da Alcatra",
+          "descricao": "Combo de 500g de bombom da alcatra, arroz biro-biro, vinagrete, farofa e batata frita.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 167.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/combo-bombom-da-alcatra.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "combo-quarteto-dom-chico",
+          "nome": "Combo Quarteto Dom Chico",
+          "descricao": "250g de Picanha fatiada, 250g de linguiça suína, 250g de bombom de alcatra, 250g de costelinha suína, acompanha arroz com brócolis, farofa de alho crocante, batata frita e vinagrete.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 279.9
+            }
+          ],
+          "serve_pessoas": 4,
+          "origem": null,
+          "foto": "img/combo-quarteto-dom-chico.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": true
+        },
+        {
+          "id": "combo-familia-serve-2",
+          "nome": "Combo Família",
+          "descricao": "500g de Picanha fatiada com queijo, acompanha arroz biro biro, farofa de banana, fritas e vinagrete.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 179.9
+            }
+          ],
+          "serve_pessoas": 2,
+          "origem": null,
+          "foto": "img/combo-familia-serve-2.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "combo-familia-serve-4",
+          "nome": "Combo Família",
+          "descricao": "700g de Picanha fatiada com queijo, acompanha arroz biro biro, farofa de banana, fritas e vinagrete.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 289.9
+            }
+          ],
+          "serve_pessoas": 4,
+          "origem": null,
+          "foto": "img/combo-familia-serve-4.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": true
+        },
+        {
+          "id": "combo-de-linguica-suina",
+          "nome": "Combo de Linguiça Suína",
+          "descricao": "Linguiça suína com ou sem pimenta 400g, arroz biro-biro, batata frita, vinagrete e farofa.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 109.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/combo-de-linguica-suina.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "combo-carne-de-sol",
+          "nome": "Combo Carne de Sol",
+          "descricao": "500g de carne de sol angus, acompanhamentos: arroz branco, mandioca frita, salada da casa.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 159.9
+            }
+          ],
+          "serve_pessoas": 2,
+          "origem": null,
+          "foto": "img/combo-carne-de-sol.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "combo-de-flat-iron-500g",
+          "nome": "Combo de Flat Iron 500g",
+          "descricao": "Arroz branco, farofa de ovos, mandioca frita e molho chimichurri.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 169.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/combo-de-flat-iron-500g.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        }
+      ]
+    },
+    {
+      "id": "espetos",
+      "grupo": "comidas",
+      "nome": "Espetos Premium",
+      "chamada": "Na brasa",
+      "descricao": null,
+      "disponibilidade": null,
+      "itens": [
+        {
+          "id": "espeto-file-de-angus",
+          "nome": "Espeto Filé de Angus",
+          "descricao": "Espeto delicioso de Filé de Mignon, acompanha farofa da casa. Completo: servido com mandioca, vinagrete e farofa da casa.",
+          "precos": [
+            {
+              "rotulo": "Simples",
+              "valor": 29.9
+            },
+            {
+              "rotulo": "Completo",
+              "valor": 39.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/espeto-file-de-angus.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "espeto-de-frango",
+          "nome": "Espeto de Frango",
+          "descricao": "Espeto de frango macio e suculento, acompanha farofa da casa. Completo: servido com mandioca, vinagrete e farofa da casa.",
+          "precos": [
+            {
+              "rotulo": "Simples",
+              "valor": 19.9
+            },
+            {
+              "rotulo": "Completo",
+              "valor": 29.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/espeto-de-frango.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "espeto-de-frango-bacon",
+          "nome": "Espeto de Frango/Bacon",
+          "descricao": "Espeto de frango com bacon, acompanha farofa da casa. Completo: servido com mandioca, vinagrete e farofa da casa.",
+          "precos": [
+            {
+              "rotulo": "Simples",
+              "valor": 24.9
+            },
+            {
+              "rotulo": "Completo",
+              "valor": 35.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/espeto-de-frango-bacon.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "espeto-linguica-de-frango",
+          "nome": "Espeto Linguiça de Frango",
+          "descricao": "Espeto de linguiça de frango, acompanha farofa da casa. Completo: servido com mandioca, vinagrete e farofa da casa.",
+          "precos": [
+            {
+              "rotulo": "Simples",
+              "valor": 19.9
+            },
+            {
+              "rotulo": "Completo",
+              "valor": 29.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/espeto-linguica-de-frango.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "espeto-linguica-c-pimenta",
+          "nome": "Espeto Linguiça c/ Pimenta",
+          "descricao": "Espeto de linguiça suína com pimenta, acompanha farofa da casa. Completo: servido com mandioca, vinagrete e farofa da casa.",
+          "precos": [
+            {
+              "rotulo": "Simples",
+              "valor": 19.9
+            },
+            {
+              "rotulo": "Completo",
+              "valor": 29.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/espeto-linguica-c-pimenta.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "espeto-linguica-s-pimenta",
+          "nome": "Espeto Linguiça s/ Pimenta",
+          "descricao": "Espeto de linguiça suína sem pimenta, acompanha farofa da casa. Completo: servido com mandioca, vinagrete e farofa da casa.",
+          "precos": [
+            {
+              "rotulo": "Simples",
+              "valor": 19.9
+            },
+            {
+              "rotulo": "Completo",
+              "valor": 29.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/espeto-linguica-s-pimenta.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        }
+      ]
+    },
+    {
+      "id": "acompanhamentos",
+      "grupo": "comidas",
+      "nome": "Acompanhamentos",
+      "chamada": "Adicionais",
+      "descricao": null,
+      "disponibilidade": null,
+      "itens": [
+        {
+          "id": "feijao",
+          "nome": "Feijão",
+          "descricao": "Porção de Feijão Preto.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 9.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/feijao.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "arroz-branco",
+          "nome": "Arroz Branco",
+          "descricao": "Porção de Arroz Branco.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 12.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/arroz-branco.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "arroz-biro-biro",
+          "nome": "Arroz Biro-Biro",
+          "descricao": "Arroz Branco, batata palha, bacon, ovo e cebolinha.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 19.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/arroz-biro-biro.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "mandioca",
+          "nome": "Mandioca",
+          "descricao": "Porção de Mandioca.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 14.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/mandioca.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "vinagrete",
+          "nome": "Vinagrete",
+          "descricao": "Cebola Branca e Roxa, Pimentão e Tomate.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 10.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/vinagrete.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "legumes-salteados",
+          "nome": "Legumes Salteados",
+          "descricao": "Brócolis, Couve-Flor, Chuchu, Vagem e Cenoura.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 19.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/legumes-salteados.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        }
+      ]
+    },
+    {
+      "id": "hamburgueres",
+      "grupo": "comidas",
+      "nome": "Hambúrgueres",
+      "chamada": "Opções para o jantar",
+      "descricao": null,
+      "disponibilidade": "Opções para o jantar",
+      "itens": [
+        {
+          "id": "braseiro-burguer",
+          "nome": "Braseiro Burguer",
+          "descricao": "Pão brioche, blend de 180g in natura, queijo coalho, alface e tomate e molho especial da casa.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 36.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/braseiro-burguer.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "braseiro-burguer-bacon",
+          "nome": "Braseiro Burguer Bacon",
+          "descricao": "Pão brioche, blend de 180g in natura, queijo coalho, 2 fatias de bacon, alface e tomate e molho especial da casa.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 41.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/braseiro-burguer-bacon.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "braseiro-agridoce",
+          "nome": "Braseiro Agridoce",
+          "descricao": "Pão brioche, 180g de blend in natura, queijo coalho grelhado, geleia de pimenta, cebola caramelizada, alface e tomate e molho especial da casa.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 38.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/braseiro-agridoce.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "braseiro-australiano",
+          "nome": "Braseiro Australiano",
+          "descricao": "Pão Australiano, blend de 180g in natura, queijo mussarela, cebola crispy, alface e tomate e molho barbecue.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 37.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/braseiro-australiano.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "adicionais",
+          "nome": "Adicionais",
+          "descricao": "Adicionais para os hambúrgueres.",
+          "precos": [
+            {
+              "rotulo": "Cebola roxa",
+              "valor": 2
+            },
+            {
+              "rotulo": "Mussarela em dobro",
+              "valor": 3
+            },
+            {
+              "rotulo": "Bacon",
+              "valor": 5
+            },
+            {
+              "rotulo": "Carne 180g",
+              "valor": 12
+            },
+            {
+              "rotulo": "Frango",
+              "valor": 8
+            },
+            {
+              "rotulo": "Maionese da casa",
+              "valor": 2.5
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": null,
+          "foto_prioridade": "nao",
+          "destaque_sugerido": false
+        }
+      ]
+    },
+    {
+      "id": "sobremesas",
+      "grupo": "comidas",
+      "nome": "Sobremesas",
+      "chamada": "Hoje pode!",
+      "descricao": "Pra fechar a noite do jeito certo: doces na medida pra quem não pula a melhor parte.",
+      "disponibilidade": null,
+      "itens": [
+        {
+          "id": "banana-flambada",
+          "nome": "Banana Flambada",
+          "descricao": "Bananas flambadas com conhaque e laranja, servidas com uma bola de sorvete de creme. *com canela",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 34.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/banana-flambada.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": true
+        },
+        {
+          "id": "mousse-de-limao-ou-maracuja",
+          "nome": "Mousse de Limão ou Maracujá",
+          "descricao": null,
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 19.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/mousse-de-limao-ou-maracuja.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "brownie-com-sorvete",
+          "nome": "Brownie com Sorvete",
+          "descricao": "Brownie de chocolate artesanal servido com sorvete de creme, calda de chocolate e raspas de chocolate.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 39.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/brownie-com-sorvete.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "banoffee",
+          "nome": "Banoffee",
+          "descricao": "Base de biscoito amanteigado, doce de leite, banana, chantilly e raspas de chocolate.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 39.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/banoffee.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "pudim-doce-de-leite",
+          "nome": "Pudim Doce de Leite",
+          "descricao": null,
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 19.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/pudim-doce-de-leite.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        }
+      ]
+    },
+    {
+      "id": "nao-alcoolicos",
+      "grupo": "bebidas",
+      "nome": "Refrigerantes, Sucos e Outros",
+      "chamada": "Não alcoólicos",
+      "descricao": null,
+      "disponibilidade": null,
+      "itens": [
+        {
+          "id": "coca-cola-ks",
+          "nome": "Coca Cola KS",
+          "descricao": "Tradicional ou zero açúcar.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 9.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": null,
+          "foto_prioridade": "nao",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "coca-cola-lata",
+          "nome": "Coca Cola Lata",
+          "descricao": "Tradicional ou zero açúcar.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 9.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": null,
+          "foto_prioridade": "nao",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "guarana-lata",
+          "nome": "Guaraná Lata",
+          "descricao": "Tradicional ou zero açúcar.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 9.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": null,
+          "foto_prioridade": "nao",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "fanta",
+          "nome": "Fanta",
+          "descricao": "Laranja ou Uva.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 9.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": null,
+          "foto_prioridade": "nao",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "schweppes-citrus",
+          "nome": "Schweppes Citrus",
+          "descricao": null,
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 9.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": null,
+          "foto_prioridade": "nao",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "sprite",
+          "nome": "Sprite",
+          "descricao": null,
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 9.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": null,
+          "foto_prioridade": "nao",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "guarana-jesus",
+          "nome": "Guaraná Jesus",
+          "descricao": null,
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 9.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": null,
+          "foto_prioridade": "nao",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "suco-natural",
+          "nome": "Suco Natural",
+          "descricao": "Suco natural de laranja ou limão.",
+          "precos": [
+            {
+              "rotulo": "copo 300ml",
+              "valor": 17.9
+            },
+            {
+              "rotulo": "jarra 700ml",
+              "valor": 26.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": null,
+          "foto_prioridade": "nao",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "suco-del-valle-lata",
+          "nome": "Suco Del Valle Lata",
+          "descricao": "Goiaba, Manga, Maracujá, Pêssego e Uva.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 9.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": null,
+          "foto_prioridade": "nao",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "agua-crystal-500ml",
+          "nome": "Água Crystal 500ml",
+          "descricao": "Com ou sem gás.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 7.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": null,
+          "foto_prioridade": "nao",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "h2o-limao-ou-limoneto",
+          "nome": "H2O Limão ou Limoneto",
+          "descricao": null,
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 12.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": null,
+          "foto_prioridade": "nao",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "agua-tonica-antartica",
+          "nome": "Água Tônica Antártica",
+          "descricao": null,
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 9.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": null,
+          "foto_prioridade": "nao",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "cha-ice-tea-leao",
+          "nome": "Chá Ice Tea Leão",
+          "descricao": null,
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 11.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": null,
+          "foto_prioridade": "nao",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "red-bull",
+          "nome": "Red Bull",
+          "descricao": null,
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 18.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": null,
+          "foto_prioridade": "nao",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "monster-energy",
+          "nome": "Monster Energy",
+          "descricao": null,
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 17.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": null,
+          "foto_prioridade": "nao",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "cafe-coado",
+          "nome": "Café Coado",
+          "descricao": null,
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 7.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": null,
+          "foto_prioridade": "nao",
+          "destaque_sugerido": false
+        }
+      ]
+    },
+    {
+      "id": "chopps",
+      "grupo": "bebidas",
+      "nome": "Chopps",
+      "chamada": "Chopps e drinks",
+      "descricao": "Chopp 1L apenas para viagem com adicional de R$ 3,80 do Growler.",
+      "disponibilidade": null,
+      "itens": [
+        {
+          "id": "chopp-dom-chico",
+          "nome": "Chopp Dom Chico",
+          "descricao": "Chopp Lager, IBU 12, ABV 4,5%. Sabor suave e equilibrado. Criação conjunta com a Cervejaria 4 Poderes.",
+          "precos": [
+            {
+              "rotulo": "300ml",
+              "valor": 11.9
+            },
+            {
+              "rotulo": "500ml",
+              "valor": 20.9
+            },
+            {
+              "rotulo": "1 litro",
+              "valor": 34.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/chopp-dom-chico.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": true
+        },
+        {
+          "id": "chopp-poder-e-punk",
+          "nome": "Chopp Poder e Punk",
+          "descricao": "Chopp Double IPA, IBU 80, ABV 8,0%. Intensos aromas cítricos da Cervejaria 4 Poderes.",
+          "precos": [
+            {
+              "rotulo": "300ml",
+              "valor": 21.9
+            },
+            {
+              "rotulo": "500ml",
+              "valor": 32.9
+            },
+            {
+              "rotulo": "1 litro",
+              "valor": 58.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/chopp-poder-e-punk.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "chopp-brahma",
+          "nome": "Chopp Brahma",
+          "descricao": null,
+          "precos": [
+            {
+              "rotulo": "300ml",
+              "valor": 12.9
+            },
+            {
+              "rotulo": "500ml",
+              "valor": 23.9
+            },
+            {
+              "rotulo": "1 litro",
+              "valor": 49.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/chopp-brahma.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "chopp-schornstein",
+          "nome": "Chopp Schornstein",
+          "descricao": "Chopp IPA, IBU 45, ABV 6,5%. Cerveja escura com aroma floral, cítrico e frutado, com amargor marcante. Cervejaria Schornstein.",
+          "precos": [
+            {
+              "rotulo": "300ml",
+              "valor": 26.9
+            },
+            {
+              "rotulo": "500ml",
+              "valor": 36.9
+            },
+            {
+              "rotulo": "1 litro",
+              "valor": 64.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/chopp-schornstein.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        }
+      ]
+    },
+    {
+      "id": "drinks",
+      "grupo": "bebidas",
+      "nome": "Drinks",
+      "chamada": "Chopps e drinks",
+      "descricao": null,
+      "disponibilidade": null,
+      "itens": [
+        {
+          "id": "caipirinha",
+          "nome": "Caipirinha",
+          "descricao": "Cachaça, limão, açúcar e gelo.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 21.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/caipirinha.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "margarita",
+          "nome": "Margarita",
+          "descricao": "Tequila, suco de limão, licor de pêssego e borda de sal.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 36.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/margarita.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "caipiroska-nacional",
+          "nome": "Caipiroska Nacional",
+          "descricao": "Vodka nacional, fruta da estação, açúcar e gelo.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 29.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/caipiroska-nacional.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "caipiroska-importada",
+          "nome": "Caipiroska Importada",
+          "descricao": "Vodka Absolut, fruta da estação, açúcar e gelo.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 35.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/caipiroska-importada.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "mojito",
+          "nome": "Mojito",
+          "descricao": "Rum Bacardi, sumo de limão, folhas de hortelã, xarope de açúcar e água com gás.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 35.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/mojito.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "aperol",
+          "nome": "Aperol",
+          "descricao": "Aperol, espumante, suco de laranja e gelo.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 39.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/aperol.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "gin-tropical",
+          "nome": "Gin Tropical",
+          "descricao": "Gin Tanqueray, suco de laranja, red bull tropical e gelo.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 44.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/gin-tropical.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "motorista-da-vez-sem-alcool",
+          "nome": "Motorista da Vez (sem álcool)",
+          "descricao": "Xarope de sua escolha, sumo de limão e água com gás.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 34.9
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/motorista-da-vez-sem-alcool.webp",
+          "foto_prioridade": "sim",
+          "destaque_sugerido": false
+        }
+      ]
+    },
+    {
+      "id": "cervejas",
+      "grupo": "bebidas",
+      "nome": "Cervejas Especiais",
+      "chamada": "Carta de cervejas especiais",
+      "descricao": "ABV: teor alcoólico | IBU: índice de amargor.",
+      "disponibilidade": null,
+      "itens": [
+        {
+          "id": "chope-schornstein-ipa-330ml",
+          "nome": "Chope Schornstein IPA 330ml",
+          "descricao": "ABV 6,5% · IBU 43. Chope com uma coloração levemente âmbar, no aroma notas florais, cítricas e frutadas, deixam a receita refrescante e com o característico e desejado amargor que o estilo pede.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 13
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/chope-schornstein-ipa-330ml.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "chope-colombina-puro-malte-330ml",
+          "nome": "Chope Colombina Puro Malte 330ml",
+          "descricao": "ABV 4,3% · IBU 11. Chope leve e refrescante, bem equilibrado e fácil de beber. Uma lager tradicional que traz um leve sabor de malte e aromas herbais e florais.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 11
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/chope-colombina-puro-malte-330ml.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "schornstein-apa-500ml",
+          "nome": "Schornstein APA 500ml",
+          "descricao": "ABV 5,0% · IBU 35. Cerveja com uma coloração levemente âmbar, notas florais, cítricas e frutadas, deixam a receita refrescante e com o característico e desejado amargor que o estilo pede.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 34
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/schornstein-apa-500ml.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "schornstein-ipa-500ml",
+          "nome": "Schornstein IPA 500ml",
+          "descricao": "ABV 6,5% · IBU 43. Cerveja clara, refrescante e lupulada, com equilíbrio entre o amargor do lúpulo e o dulçor do malte. Apresenta aromas cítricos, coloração dourada-clara e final macio e refrescante.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 36
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/schornstein-ipa-500ml.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "criolipa-ipa-tropical-355ml",
+          "nome": "Criolipa IPA Tropical 355ml",
+          "descricao": "ABV 7,2% · IBU 42. Cerveja IPA tropical do cerrado com aroma cítrico-floral e teor intenso. É uma cerveja feita para abrir a mente.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 17
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/criolipa-ipa-tropical-355ml.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "roleta-russa-ipa-355ml",
+          "nome": "Roleta Russa IPA 355ml",
+          "descricao": "ABV 5,6% · IBU 58. Cerveja de estilo americano, com coloração dourada, amargor alto, aroma e sabor extremamente frutados que remetem a maracujá, abacaxi, laranja, pêssego e manga.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 18
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/roleta-russa-ipa-355ml.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "roleta-russa-easy-ipa-355ml",
+          "nome": "Roleta Russa Easy IPA 355ml",
+          "descricao": "ABV 4,6% · IBU 30. Estilo American IPA, em uma versão mais leve, de coloração amarelo-palha, apresenta amargor médio e aroma e sabor que remetem a frutas cítricas e tropicais.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 16
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/roleta-russa-easy-ipa-355ml.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "roleta-russa-ipa-500ml",
+          "nome": "Roleta Russa IPA 500ml",
+          "descricao": "ABV 5,6% · IBU 58. Cerveja de estilo americano, com coloração dourada, amargor alto, aroma e sabor extremamente frutados que remetem a maracujá, abacaxi, laranja, pêssego e manga.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 36
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/roleta-russa-ipa-500ml.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "colombina-puro-malte-600ml",
+          "nome": "Colombina Puro Malte 600ml",
+          "descricao": "ABV 4,3% · IBU 11. A Colombina puro malte tem corpo leve, é filtrada e, portanto, tem uma apresentação cristalina na taça. Essa Goiana foi buscar na Europa lúpulos de perfil floral e herbal para trazer ainda mais refrescância e bebabilidade.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 29
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/colombina-puro-malte-600ml.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "colombina-ipa-600ml",
+          "nome": "Colombina IPA 600ml",
+          "descricao": "ABV 6% · IBU 40. Colombina Indian Pale Ale (IPA) com notas de caramelo, aromas frutados e cítricos que lembram maracujá, equilibrados pelo amargor característico do estilo.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 30
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/colombina-ipa-600ml.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "colombina-session-ipa-600ml",
+          "nome": "Colombina Session IPA 600ml",
+          "descricao": "ABV 4,3% · IBU 32. Session IPA com lúpulos do cerrado goiano, trazendo aromas cítricos e frutados. Leve, refrescante e perfeita para qualquer ocasião.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 30
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": null,
+          "foto": "img/colombina-session-ipa-600ml.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        }
+      ]
+    },
+    {
+      "id": "espumantes",
+      "grupo": "vinhos",
+      "nome": "Espumantes",
+      "chamada": "Cartas de vinhos",
+      "descricao": null,
+      "disponibilidade": null,
+      "itens": [
+        {
+          "id": "1913-sparkling-brut",
+          "nome": "1913 Sparkling Brut",
+          "descricao": "Basso · Serra Gaúcha. Chardonnay e Método Charmat.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 102
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": "Brasil",
+          "foto": "img/1913-sparkling-brut.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "1913-sparkling-brut-moscatel",
+          "nome": "1913 Sparkling Brut Moscatel",
+          "descricao": "Basso · Serra Gaúcha. Moscato Bianco e Moscato Giallo.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 102
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": "Brasil",
+          "foto": "img/1913-sparkling-brut-moscatel.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "1913-sparkling-brut-rose",
+          "nome": "1913 Sparkling Brut Rosé",
+          "descricao": "Basso · Serra Gaúcha. Moscato de Hamburgo e Moscato Bianco.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 102
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": "Brasil",
+          "foto": "img/1913-sparkling-brut-rose.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        }
+      ]
+    },
+    {
+      "id": "vinhos-brancos",
+      "grupo": "vinhos",
+      "nome": "Vinhos Brancos",
+      "chamada": "Cartas de vinhos",
+      "descricao": null,
+      "disponibilidade": null,
+      "itens": [
+        {
+          "id": "donoso-estate-chardonnay",
+          "nome": "Donoso Estate Chardonnay",
+          "descricao": "Viña Dos Andes · Vale Central. Chardonnay.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 100
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": "Chile",
+          "foto": "img/donoso-estate-chardonnay.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "ribera-reserva-sauvignon-blanc",
+          "nome": "Ribera Reserva Sauvignon Blanc",
+          "descricao": "CWC · Vale do Maule. Sauvignon Blanc.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 112
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": "Chile",
+          "foto": "img/ribera-reserva-sauvignon-blanc.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "luz-vinho-verde",
+          "nome": "Luz Vinho Verde",
+          "descricao": "Carneiro Wines · Vinho Verde. Arinto, Síria e Fernão Pires.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 135
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": "Portugal",
+          "foto": "img/luz-vinho-verde.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        }
+      ]
+    },
+    {
+      "id": "vinhos-roses",
+      "grupo": "vinhos",
+      "nome": "Vinhos Rosés",
+      "chamada": "Cartas de vinhos",
+      "descricao": null,
+      "disponibilidade": null,
+      "itens": [
+        {
+          "id": "cuvee-sidoine-rose",
+          "nome": "Cuvée Sidoine Rosé",
+          "descricao": "Marrenon Vignobles · Mediterrâneo. Grenache Noir, Merlot e Syrah.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 170
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": "França",
+          "foto": "img/cuvee-sidoine-rose.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "state-spring-4-estaciones-rose",
+          "nome": "State Spring 4 Estaciones Rose",
+          "descricao": "4 Estaciones · Luján de Cuyo. Malbec.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 94
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": "Argentina",
+          "foto": "img/state-spring-4-estaciones-rose.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        }
+      ]
+    },
+    {
+      "id": "vinhos-tintos",
+      "grupo": "vinhos",
+      "nome": "Vinhos Tintos",
+      "chamada": "Cartas de vinhos",
+      "descricao": null,
+      "disponibilidade": null,
+      "itens": [
+        {
+          "id": "le-petit-maynne",
+          "nome": "Le Petit Maynne",
+          "descricao": "Château Mayne · Bordeaux. Merlot, Cabernet Sauvignon e Cabernet Franc.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 187
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": "França",
+          "foto": "img/le-petit-maynne.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "governato-toscana-rosso",
+          "nome": "Governato Toscana Rosso",
+          "descricao": "Sensi Vini · Toscana. Sangiovese.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 540
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": "Itália",
+          "foto": "img/governato-toscana-rosso.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "collezione-chianti",
+          "nome": "Collezione Chianti",
+          "descricao": "Sensi Vini · Toscana. Sangiovese.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 179
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": "Itália",
+          "foto": "img/collezione-chianti.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "rossi-vulcanici-primitivo-puglia",
+          "nome": "Rossi Vulcanici Primitivo Puglia",
+          "descricao": "Peppe Buio · Puglia. Primitivo.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 167
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": "Itália",
+          "foto": "img/rossi-vulcanici-primitivo-puglia.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "yllera-roble-9-meses",
+          "nome": "Yllera Roble 9 meses",
+          "descricao": "Grupo Yllera · Castilla y León. Tempranillo.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 177
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": "Espanha",
+          "foto": "img/yllera-roble-9-meses.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "esperanca-regional-alentejo",
+          "nome": "Esperança Regional Alentejo",
+          "descricao": "Segur Estates · Alentejo. Aragonez, Trincadeira e Castelão.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 119
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": "Portugal",
+          "foto": "img/esperanca-regional-alentejo.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "badoxa-douro-doc-tinto",
+          "nome": "Badoxa Douro DOC Tinto",
+          "descricao": "Badoxa · Douro. Tinta Roriz, Touriga Franca e Touriga Nacional.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 143
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": "Portugal",
+          "foto": "img/badoxa-douro-doc-tinto.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "corazon-del-indio",
+          "nome": "Corazón Del Indio",
+          "descricao": "Viña Marty · Vale de Colchagua. Cabernet Sauvignon, Carménère e Syrah.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 289
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": "Chile",
+          "foto": "img/corazon-del-indio.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "casa-donoso-estate-blend",
+          "nome": "Casa Donoso Estate Blend",
+          "descricao": "Casa Donoso · Vale Central. Cabernet Sauvignon e Pinot Noir.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 100
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": "Chile",
+          "foto": "img/casa-donoso-estate-blend.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        },
+        {
+          "id": "bourbon-barrel-aged-cabernet-sauvignon",
+          "nome": "Bourbon Barrel Aged Cabernet Sauvignon",
+          "descricao": "Casa Donoso · Vale do Maule. Cabernet Sauvignon.",
+          "precos": [
+            {
+              "rotulo": null,
+              "valor": 208
+            }
+          ],
+          "serve_pessoas": null,
+          "origem": "Chile",
+          "foto": "img/bourbon-barrel-aged-cabernet-sauvignon.webp",
+          "foto_prioridade": "opcional",
+          "destaque_sugerido": false
+        }
+      ]
+    }
+  ],
+  "informacoes": [
+    "Couvert artístico: para cada apresentação musical é cobrado couvert artístico e musical. Consulte a programação do dia.",
+    "Brinquedoteca equipada e segura para crianças de 3 a 10 anos.",
+    "Taxa de serviço opcional de 10%.",
+    "Água potável gratuita. Comandas individuais para melhor controle do consumo.",
+    "Aceitamos cartões de crédito e débito, dinheiro e Pix (consulte as bandeiras). Não aceitamos cheques.",
+    "É proibida a venda de bebidas alcoólicas para menores de 18 anos. Se beber, não dirija.",
+    "Quer conhecer mais? Consulte o garçom: temos uma seleção completa de cortes, porções e bebidas."
+  ]
+};

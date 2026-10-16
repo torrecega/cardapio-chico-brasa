@@ -1,0 +1,13 @@
+{
+  "name": "chico-brasa-cardapio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cardápio digital do Chico Brasa & Grill — HTML, CSS e JavaScript puro, sem build.",
+  "scripts": {
+    "fotos": "node scripts/otimizar-fotos.mjs",
+    "fotos:forcar": "node scripts/otimizar-fotos.mjs --forcar"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5"
+  }
+}
