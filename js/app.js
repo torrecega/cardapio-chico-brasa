@@ -264,12 +264,6 @@
       const url = LINKS[a.dataset.link];
       if (url) a.href = url; else a.hidden = true;
     });
-    if (FOTOS.logo) {
-      const logo = $('#logo');
-      logo.innerHTML = '<img src="img/logo.png" alt="Logo do ' + esc(R.nome) + '" width="100" height="100">';
-      logo.hidden = false;
-      $('#topo').classList.add('tem-logo');
-    }
     if (FOTOS.capa) {
       const capa = $('#capa');
       capa.classList.add('tem-foto');

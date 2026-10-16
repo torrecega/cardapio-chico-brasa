@@ -271,31 +271,25 @@ a { color: var(--dourado); }
   z-index: 2;
   margin-top: -62px;
 }
-.topo.tem-logo .topo-conteudo { margin-top: -52px; }
-
-.logo {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto 10px;
-  border-radius: 50%;
-  padding: 3px;
-  background: conic-gradient(from 200deg, var(--brasa), var(--dourado), var(--brasa-clara), var(--brasa));
-  box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.8);
-}
-.logo img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--bg);
-  background: var(--bg);
-}
+.topo-conteudo:has(.marca:not(.sem-logo)) { margin-top: -104px; }
 
 .marca {
   margin: 0;
   font-weight: 400;
   line-height: 1;
 }
+/* Logo do restaurante: as chamas sobem sobre o brilho da capa */
+.marca-logo {
+  display: block;
+  width: min(264px, 70vw);
+  height: auto;
+  margin: 0 auto;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 22px rgba(228, 85, 31, 0.3));
+}
+/* O nome em letras só aparece se o logo não carregar */
+.marca:not(.sem-logo) .marca-1,
+.marca:not(.sem-logo) .marca-2,
+.marca.sem-logo .marca-logo { display: none; }
 .marca-1 {
   display: block;
   font-family: var(--f-slab);
@@ -326,7 +320,6 @@ a { color: var(--dourado); }
   background: linear-gradient(90deg, transparent, var(--brasa));
 }
 .marca-2::after { transform: scaleX(-1); }
-.topo.tem-logo .marca-1 { font-size: clamp(28px, 8.4vw, 36px); }
 
 .slogan {
   margin: 12px 0 2px;
@@ -1591,6 +1584,7 @@ body.tem-lista .rodape { padding-bottom: calc(110px + env(safe-area-inset-bottom
 @media (min-width: 700px) {
   .capa { height: 170px; margin: 0 calc(50% - 50vw); }
   .topo { padding-left: 24px; padding-right: 24px; }
+  .marca-logo { width: 300px; }
   .secao { padding-left: 24px; padding-right: 24px; }
   .item { width: calc(100% + 48px); margin: 0 -24px; padding: 16px 24px; }
 }

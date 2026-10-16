@@ -57,8 +57,10 @@
       <div class="capa-brasas" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     </div>
     <div class="topo-conteudo">
-      <div class="logo" id="logo" hidden></div>
+      <!-- Logo do restaurante (gerado por "npm run fotos" a partir de fotos-originais/logo.webp).
+           Se a imagem não carregar, aparece o nome em letras. -->
       <h1 class="marca">
+        <img class="marca-logo" src="img/logo.webp" alt="Chico Brasa &amp; Grill" width="600" height="409" fetchpriority="high" onerror="this.parentNode.classList.add('sem-logo')">
         <span class="marca-1">Chico Brasa</span>
         <span class="marca-2">&amp; Grill</span>
       </h1>

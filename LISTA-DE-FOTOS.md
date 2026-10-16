@@ -460,7 +460,7 @@ Aparecem nos círculos da fileira de categorias, no topo de cada aba. Ficam reco
 
 ## 4. Opcional: logo, capa e prévia de link
 
-- [ ] **Logo** · arquivo: `img/logo.png` (quadrado). Use o logo oficial do restaurante — não gere com IA. Também pode ir em `fotos-originais/logo.png` para o script ajustar o tamanho.
+- [x] **Logo** · arquivo: `fotos-originais/logo.webp` (logo oficial, fundo transparente). O `npm run fotos` gera `img/logo.webp`.
 - [ ] **Capa do topo** · arquivo: `fotos-originais/capa.jpg` (horizontal, de preferência 1600×600 ou maior). Uma foto real da parrilla ou do salão é o ideal.
   > Fotografia profissional ultrarrealista de uma parrilla com carnes grelhando sobre brasas incandescentes, chamas baixas e faíscas subindo, ambiente escuro com luz quente laranja, formato horizontal panorâmico, sem texto, sem logotipos, sem pessoas, sem mãos.
 - [ ] **Prévia de link (WhatsApp)** · arquivo: `img/og.jpg` (1200×630). Pode ser a capa com o logo por cima.

@@ -8,15 +8,15 @@
  *   fotos-originais/<id-do-item>.png         -> foto do prato
  *   fotos-originais/categorias/<id>.png      -> foto redonda da categoria
  *   fotos-originais/capa.jpg                 -> capa do topo (opcional)
- *   fotos-originais/logo.png                 -> logo redondo (opcional; também pode
- *                                               colocar direto em img/logo.png)
+ *   fotos-originais/logo.webp                -> logo do topo (png ou webp com fundo
+ *                                               transparente; mantém a proporção)
  *
  * O que o script gera:
  *   img/pratos/<id>.webp          1200×1200 (painel do prato)
  *   img/pratos/thumb/<id>.webp    240×240   (lista)
  *   img/categorias/<id>.webp      400×400
  *   img/capa.webp                 1600×600
- *   img/logo.png                  400×400
+ *   img/logo.webp                 até 600px, na proporção original
  *   dados/fotos.js                lista das fotos que existem
  */
 import fs from 'node:fs/promises';
@@ -173,10 +173,14 @@ for (const orig of pratos.porId.values()) {
       continue;
     }
     if (orig.id === 'logo') {
-      const destino = path.join(IMG, 'logo.png');
+      const destino = path.join(IMG, 'logo.webp');
       if (await precisaGerar(orig.caminho, destino)) {
-        await sharp(orig.caminho).rotate().resize(400, 400, { fit: 'cover', position: 'centre' }).png().toFile(destino);
-        geradas.push('img/logo.png');
+        // Mantém a proporção e a transparência; só corta as bordas vazias
+        const info = await sharp(orig.caminho).rotate().trim()
+          .resize(600, 600, { fit: 'inside', withoutEnlargement: true })
+          .webp({ quality: 70, alphaQuality: 70, effort: 6 }) // ~60KB: aparece na primeira tela
+          .toFile(destino);
+        geradas.push(`img/logo.webp (${info.width}×${info.height} — confira width/height do logo no index.html)`);
       }
       continue;
     }
@@ -227,14 +231,14 @@ const webpsCat = new Set((await listarArquivos(DEST_CAT)).filter((n) => n.endsWi
 
 const fotosPratos = itens.map((i) => i.id).filter((id) => webpsPratos.has(id) && webpsThumb.has(id));
 const fotosCats = dados.categorias.map((c) => c.id).filter((id) => webpsCat.has(id));
-const temLogo = existsSync(path.join(IMG, 'logo.png'));
+const temLogo = existsSync(path.join(IMG, 'logo.webp')); // o logo fica direto no index.html
 const temCapa = existsSync(path.join(IMG, 'capa.webp'));
 
 const conteudo = `/*
  * ARQUIVO GERADO AUTOMATICAMENTE por "npm run fotos" — não precisa editar à mão.
  * Lista quais fotos existem na pasta img/, para o site não pedir arquivos que não existem.
  */
-window.FOTOS = ${JSON.stringify({ logo: temLogo, capa: temCapa, categorias: fotosCats, pratos: fotosPratos }, null, 2)};
+window.FOTOS = ${JSON.stringify({ capa: temCapa, categorias: fotosCats, pratos: fotosPratos }, null, 2)};
 `;
 await fs.writeFile(ARQ_FOTOS, conteudo, 'utf8');
 

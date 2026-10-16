@@ -154,7 +154,7 @@ Outras situações:
 
 - **Trocar uma foto:** substitua o arquivo em `fotos-originais/` e rode `npm run fotos` de novo (ele só refaz o que mudou). Para refazer todas: `npm run fotos:forcar`.
 - **Remover uma foto:** apague o original em `fotos-originais/` e os arquivos com o mesmo nome em `img/pratos/` e `img/pratos/thumb/`, depois rode `npm run fotos`.
-- **Logo:** coloque o logo em `img/logo.png` (ou em `fotos-originais/logo.png`) e rode `npm run fotos`. Sem logo, o topo mostra o nome em letras.
+- **Logo:** o logo oficial já está no topo. O original fica em `fotos-originais/logo.webp` (fundo transparente) e o script gera a versão leve `img/logo.webp`, sem cortar. Para trocar, substitua o original (png ou webp, com fundo transparente), rode `npm run fotos` e, se a proporção mudar, ajuste `width` e `height` da tag `<img class="marca-logo">` no `index.html` (o script mostra os valores). Se a imagem não carregar, o topo mostra o nome em letras.
 - **Capa do topo:** coloque `fotos-originais/capa.jpg` e rode `npm run fotos`. Sem capa, o topo usa o gradiente de brasa.
 - **Prévia no WhatsApp:** salve uma imagem 1200×630 como `img/og.jpg` (veja a observação na seção 5).
 
